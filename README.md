@@ -29,14 +29,19 @@ Demonstrate your understanding of this week's concepts by answering the followin
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager
 
 1. What is the DOM?
+The DOM is the palette that we work in on a website.
 
 2. What is an event?
+A event is anything that happens dynamically on the page. Can be clicks, hover, mouseover, etc.
 
 3. What is an event listener?
+An event listener is a method that waits for a certain action to be called on a element that responds to a element.
 
 4. Why would we convert a NodeList into an Array?
+Arrays have useful methods that NodeList doesn't 
 
 5. What is a component?
+A component is a piece of code that ca be used to create repeating parts with dynamic code.
 
 ### Git Set up
 

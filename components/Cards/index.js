@@ -17,3 +17,63 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+
+axios.get('https://lambda-times-backend.herokuapp.com/articles')
+    .then((data) => {
+       const articles = data.data.articles;
+       const mainCards = document.querySelector('.cards-container');
+
+       articles.bootstrap.forEach(card => {
+           mainCards.appendChild(createCard(card.headline, card.authorPhoto, card.authorName));
+       });
+
+        articles.javascript.forEach(card => {
+            mainCards.appendChild(createCard(card.headline, card.authorPhoto, card.authorName));
+
+        });
+
+        articles.jquery.forEach(card => {
+            mainCards.appendChild(createCard(card.headline, card.authorPhoto, card.authorName));
+
+        });
+
+        articles.node.forEach(card => {
+            mainCards.appendChild(createCard(card.headline, card.authorPhoto, card.authorName));
+
+        });
+
+        articles.technology.forEach(card => {
+            mainCards.appendChild(createCard(card.headline, card.authorPhoto, card.authorName));
+
+        })
+    })
+    .catch( error => {
+        console.log("Error, not able to pull the Cards API Information", error);
+    });
+
+function createCard(articleHeadline, authorImg, authorName) {
+    const mainCard = document.createElement('div'),
+        headline = document.createElement('div'),
+        author = document.createElement('div'),
+        imgContainer = document.createElement('div'),
+        authorImage = document.createElement('img'),
+        byAuthorName = document.createElement('span');
+
+    mainCard.classList.add('card');
+    headline.classList.add('headline');
+    author.classList.add('author');
+    imgContainer.classList.add('img-container');
+
+    headline.textContent = articleHeadline;
+    author.textContent = authorName;
+    authorImage.src = authorImg;
+
+    mainCard.appendChild(headline);
+    mainCard.appendChild(author);
+    author.appendChild(imgContainer);
+    imgContainer.appendChild(authorImage);
+    author.appendChild(byAuthorName);
+
+    return mainCard
+
+}
